@@ -31,3 +31,7 @@ kubectl describe ingress ingress-2048 -n 2048-game
 
 # Test the application
 curl -I http://localhost
+
+```
+
+This setup is for local development only. Only one node should have hostPort mappings for ports 80 and 443 to avoid conflicts. You can access the 2048 game on http://localhost without additional port forwarding.
