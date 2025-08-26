@@ -1,0 +1,30 @@
+kind: Deployment 
+apiVersion: apps/v1
+metadata:
+  name: 2048-deployment
+  namespace: 2048-game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game 
+  template:
+    metadata:
+      name: 2048-pod 
+      namespace: 2048-game
+      labels: 
+        app: game
+    spec:
+      containers:
+      - name: 2048-game
+        image: public.ecr.aws/l6m2t8p7/docker-2048:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 128m
+            memory: 256Mi
+          limits:
+            cpu: 256m 
+            memory: 512Mi  

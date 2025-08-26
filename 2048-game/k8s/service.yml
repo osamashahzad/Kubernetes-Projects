@@ -1,0 +1,13 @@
+kind: Service 
+apiVersion: v1 
+metadata:
+  name: service-2048
+  namespace: 2048-game
+spec:
+  selector:
+    app: game
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: 'TCP'
+  type: ClusterIP  
